@@ -1,8 +1,10 @@
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Homework3 {
 	
@@ -24,7 +26,7 @@ public class Homework3 {
 		}
 		
 		
-		if (number[0] + number[1] < number[2] | number[1] + number[2] < number[0]| number[0] + number[2] < number[1]) {
+		if (number[0] + number[1] <= number[2] | number[1] + number[2] <= number[0]| number[0] + number[2] <= number[1]) {
 			System.out.println("不是三角形");		
 		} else if (number[0] == number[1] | number[0] == number[2]| number[1] == number[2]) {
 			System.out.println("等腰三角形");			
@@ -63,33 +65,7 @@ public class Homework3 {
         System.out.println("答對囉！答案就是 " + bomb);
         
         
-//        阿文很喜歡簽大樂透(1~49),但他是個善變的人,上次討厭數字是4,但這次他想要依心情決定討
-//        厭哪個數字,請您設計一隻程式,讓阿文可以輸入他不想要的數字(1~9),畫面會顯示他可以選擇
-//        的號碼與總數,如圖:
-//
-//        (進階挑戰:輸入不要的數字後,直接亂數印出6個號碼且不得重複)
-        
-        System.out.println("阿文....請輸入你討厭的數字");
-        int hate = scanner.nextInt();
-		String total = "";
-		
-		for (int num = 1; num <= 49; num++) {
 
-			if (num % 10 == hate || num / 10 == hate) {
-				continue;
-			}
-						
-			total += " " +num;
-
-		}
-		
-		String[] totalArray = total.trim().split(" ");
-		List <String> list = Arrays.asList(totalArray);
-		Collections.shuffle(list);
-		
-		System.out.println();
-		System.out.print("隨機6個號碼為 : " +  totalArray[0] +" " + totalArray[1] + " " + totalArray[2] + " " + totalArray[3] + " " + totalArray[4] + " " + totalArray[5]);
-		
 		
 //      阿文很喜歡簽大樂透(1~49),但他是個善變的人,上次討厭數字是4,但這次他想要依心情決定討
 //      厭哪個數字,請您設計一隻程式,讓阿文可以輸入他不想要的數字(1~9),畫面會顯示他可以選擇
@@ -102,8 +78,8 @@ public class Homework3 {
 		System.out.println();
 		
 		
-		System.out.println("阿文....請輸入你討厭的數字");
-        int hate2 = scanner.nextInt();
+		System.out.println("(用Array的方式) 阿文....請輸入你討厭的數字");
+        int hate = scanner.nextInt();
         int [] arrays = new int[50];
 
         for (int i = 0 ; i < arrays.length; i++){
@@ -112,7 +88,7 @@ public class Homework3 {
 
         for (int num = 1; num <= 49; num++) {
 
-            if (num % 10 == hate2 || num / 10 == hate2) {
+            if (num % 10 == hate || num / 10 == hate) {
                 continue;
             }
             arrays[num-1] = num;
@@ -131,8 +107,76 @@ public class Homework3 {
             }
          }
 
-
+        System.out.println();
         System.out.println("隨機6個號碼為 :" + pick);
+        System.out.println("====================");
+        
+//      阿文很喜歡簽大樂透(1~49),但他是個善變的人,上次討厭數字是4,但這次他想要依心情決定討
+//      厭哪個數字,請您設計一隻程式,讓阿文可以輸入他不想要的數字(1~9),畫面會顯示他可以選擇
+//      的號碼與總數,如圖:
+//
+//      (進階挑戰:輸入不要的數字後,直接亂數印出6個號碼且不得重複)
+        
+        //用Set的方式寫
+        
+        System.out.println("(用Set的方式) 阿文....請輸入你討厭的數字");
+        int hate1 = scanner.nextInt();
+        int [] filtered = new int [49];
+        for (int num = 1; num < 50; num++) {
+
+            if (num % 10 == hate1 || num / 10 == hate1) {
+                continue;
+            }
+            filtered[num -1 ] = num;
+
+        }
+
+        Integer[] filteredInteger = new Integer[filtered.length];
+
+        for (int i = 0; i < filteredInteger.length; i++){
+            filteredInteger[i] = filtered [i];
+        }
+
+        Set<Integer> noDuplicate = new HashSet<>();
+
+        while (noDuplicate.size() < 7){
+
+            int num1 = random.nextInt(0, filteredInteger.length - 1);
+            if (filteredInteger[num1] != 0)
+                noDuplicate.add(filteredInteger[num1]);
+
+        }
+
+        System.out.println();
+        System.out.println("隨機6個號碼為 :" + noDuplicate);
+        System.out.println("====================");
+
+//      阿文很喜歡簽大樂透(1~49),但他是個善變的人,上次討厭數字是4,但這次他想要依心情決定討
+//      厭哪個數字,請您設計一隻程式,讓阿文可以輸入他不想要的數字(1~9),畫面會顯示他可以選擇
+//      的號碼與總數,如圖:
+//
+//      (進階挑戰:輸入不要的數字後,直接亂數印出6個號碼且不得重複)
+      
+      System.out.println("(用Collections.suffle的方式) 阿文....請輸入你討厭的數字");
+      int hate2 = scanner.nextInt();
+		String total = "";
+		
+		for (int num = 1; num <= 49; num++) {
+
+			if (num % 10 == hate2 || num / 10 == hate2) {
+				continue;
+			}
+						
+			total += " " +num;
+
+		}
+		
+		String[] totalArray = total.trim().split(" ");
+		List <String> list = Arrays.asList(totalArray);
+		Collections.shuffle(list);
+
+		System.out.println();
+		System.out.print("隨機6個號碼為 : " +  list.subList(0, 6));
 		
 		
 	}
