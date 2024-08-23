@@ -15,7 +15,7 @@ public class Homework3 {
 		
 		Scanner scanner = new Scanner(System.in);
 		
-		System.out.println("請輸入三個整數：");		
+		System.out.println("請輸入三個整數 (以空白間隔)：");		
 		String [] stringNumber = scanner.nextLine().split(" ");
 		int [] number =new int [stringNumber.length];
 		for (int i = 0; i < number.length; i++) {
