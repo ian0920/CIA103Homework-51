@@ -34,6 +34,8 @@ public class Homework3 {
 						(Math.pow(number[1], 2) + Math.pow(number[2], 2)) == Math.pow(number[0], 2)|
 						(Math.pow(number[1], 2) + Math.pow(number[0], 2)) == Math.pow(number[2], 2)) {
 			System.out.println("直角三角形");	
+		} else {
+			System.out.println("其他三角形");	
 		}
 		
 		
@@ -69,7 +71,6 @@ public class Homework3 {
         
         System.out.println("阿文....請輸入你討厭的數字");
         int hate = scanner.nextInt();
-        int count = 0;
 		String total = "";
 		
 		for (int num = 1; num <= 49; num++) {
@@ -80,7 +81,6 @@ public class Homework3 {
 						
 			System.out.print(num + " ");
 			total += " " +num;
-			count++;
 
 		}
 		
