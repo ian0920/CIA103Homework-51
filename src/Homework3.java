@@ -79,7 +79,6 @@ public class Homework3 {
 				continue;
 			}
 						
-			System.out.print(num + " ");
 			total += " " +num;
 
 		}
@@ -91,8 +90,51 @@ public class Homework3 {
 		System.out.println();
 		System.out.print("隨機6個號碼為 : " +  totalArray[0] +" " + totalArray[1] + " " + totalArray[2] + " " + totalArray[3] + " " + totalArray[4] + " " + totalArray[5]);
 		
+		
+//      阿文很喜歡簽大樂透(1~49),但他是個善變的人,上次討厭數字是4,但這次他想要依心情決定討
+//      厭哪個數字,請您設計一隻程式,讓阿文可以輸入他不想要的數字(1~9),畫面會顯示他可以選擇
+//      的號碼與總數,如圖:
+//
+//      (進階挑戰:輸入不要的數字後,直接亂數印出6個號碼且不得重複)
+		
+		
+		//用Array的方式寫
+		System.out.println();
+		
+		
+		System.out.println("阿文....請輸入你討厭的數字");
+        int hate2 = scanner.nextInt();
+        int [] arrays = new int[50];
+
+        for (int i = 0 ; i < arrays.length; i++){
+            arrays[i] = 0;
+        }
+
+        for (int num = 1; num <= 49; num++) {
+
+            if (num % 10 == hate2 || num / 10 == hate2) {
+                continue;
+            }
+            arrays[num-1] = num;
+
+        }
+
+        int count = 0;
+        String pick = "";
+        while (count < 7){
+
+            int randomNumber = random.nextInt(0,49);
+            if (arrays[randomNumber] != 0 ){
+                pick = pick + arrays[randomNumber] + " ";
+                arrays[randomNumber] = 0;
+                count++;
+            }
+         }
+
+
+        System.out.println("隨機6個號碼為 :" + pick);
+		
+		
 	}
 	
-
-
 }
