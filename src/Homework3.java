@@ -76,8 +76,7 @@ public class Homework3 {
 		
 		//用Array的方式寫
 		System.out.println();
-		
-		
+				
 		System.out.println("(用Array的方式) 阿文....請輸入你討厭的數字");
         int hate = scanner.nextInt();
         int [] arrays = new int[50];
@@ -96,19 +95,18 @@ public class Homework3 {
         }
 
         int count = 0;
-        String pick = "";
-        while (count < 7){
+        int[] pick = new int[6];
+        while (count < 6){
 
             int randomNumber = random.nextInt(0,49);
             if (arrays[randomNumber] != 0 ){
-                pick = pick + arrays[randomNumber] + " ";
+                pick[count++] = arrays[randomNumber];
                 arrays[randomNumber] = 0;
-                count++;
             }
-         }
+        }
 
         System.out.println();
-        System.out.println("隨機6個號碼為 :" + pick);
+        System.out.println("隨機6個號碼為 :" + Arrays.toString(pick));
         System.out.println("====================");
         
 //      阿文很喜歡簽大樂透(1~49),但他是個善變的人,上次討厭數字是4,但這次他想要依心情決定討
