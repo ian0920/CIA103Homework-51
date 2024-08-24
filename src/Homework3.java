@@ -79,19 +79,19 @@ public class Homework3 {
 				
 		System.out.println("(用Array的方式) 阿文....請輸入你討厭的數字");
         int hate = scanner.nextInt();
-        int [] arrays = new int[50];
+        Integer [] arrays = new Integer[50];
+
 
         for (int i = 0 ; i < arrays.length; i++){
             arrays[i] = 0;
         }
 
-        for (int num = 1; num <= 49; num++) {
+        for (int num = 1; num < 50; num++) {
 
             if (num % 10 == hate || num / 10 == hate) {
                 continue;
             }
-            arrays[num-1] = num;
-
+            arrays[num] = num;
         }
 
         int count = 0;
