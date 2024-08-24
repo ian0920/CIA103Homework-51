@@ -98,7 +98,7 @@ public class Homework3 {
         int[] pick = new int[6];
         while (count < 6){
 
-            int randomNumber = random.nextInt(0,49);
+            int randomNumber = random.nextInt(0, 50);
             if (arrays[randomNumber] != 0 ){
                 pick[count++] = arrays[randomNumber];
                 arrays[randomNumber] = 0;
