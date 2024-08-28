@@ -78,17 +78,8 @@ public class Homework4 {
 		System.out.println("要借多少錢?");
 		int money = scanner.nextInt();
 		
-		int [][] table = new int [5][2];
-		table [0][0] = 2500;
-		table [1][0] = 800;
-		table [2][0] = 500;
-		table [3][0] = 1000;
-		table [4][0] = 1200;
-		table [0][1] = 25;
-		table [1][1] = 32;
-		table [2][1] = 8;
-		table [3][1] = 19;
-		table [4][1] = 27;
+		int [][] table = {
+				{2500, 25}, {800, 31}, {500, 8}, {1000, 19}, {1200, 27} };
 		
 		int people = 0;
 		System.out.print("員工編號: ");
@@ -96,11 +87,9 @@ public class Homework4 {
 			if (table[i][0] >= money) {
 				System.out.print(table[i][1] + " ");
 				people++;
-				}	else {
-					System.out.println("沒有人有夠多的錢可借");
-					break;
-					}			
+				}		
 		}
+	
 		System.out.printf("共%d人\n", people);
 		
 	}
