@@ -15,7 +15,7 @@ public class Homework5 {
 		System.out.println(MaxElement(doubleArray));
 		
 		getAuthCode();
-		
+		getAuthCode_A();		
 	}
 	
 	public static void starSquare(int width, int height) {
@@ -65,6 +65,7 @@ public class Homework5 {
 	}
 	
 	public static void getAuthCode(){
+
 		
 		int counter = 0;
 		String authCode = "";
@@ -99,5 +100,37 @@ public class Homework5 {
 		System.out.println("你的隨機碼：" + authCode);
         
     }
+	
+	public static void getAuthCode_A() {
+
+		
+		Random random = new Random();
+		int[] array = {58, 59, 60, 61, 62, 63, 64,91, 92, 93, 94, 95, 96};
+		String auth = "";
+		int count = 0;		
+		
+		while(count < 8) {
+			int pick = random.nextInt(48, 123);
+			boolean equal = false;
+			for (int i = 0 ; i < array.length; i++) {
+				if (array[i] == pick)
+					equal = true;
+			}
+			
+			if (!equal) {
+				auth += (char) pick;
+				count++;
+			} else {
+				equal = false;
+			}
+			
+		}		
+		System.out.print("你的隨機碼：" + auth);
+		
+	}
+	
+
 }
+
+
 
