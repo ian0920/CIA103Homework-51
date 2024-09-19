@@ -1,3 +1,4 @@
+package homework5;
 import java.util.Random;
 
 public class Homework5 {

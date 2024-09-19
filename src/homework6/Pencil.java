@@ -1,3 +1,4 @@
+package homework6;
 
 public class Pencil extends Pen{
 	
